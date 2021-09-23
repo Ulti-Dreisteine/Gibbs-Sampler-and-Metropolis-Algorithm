@@ -24,7 +24,7 @@ sys.path.append(BASE_DIR)
 from mod.config.config_loader import config_loader
 
 PROJ_DIR, PROJ_CMAP = config_loader.proj_dir, config_loader.proj_cmap
-proj_plt = config_loader.proj_plt
+plt = config_loader.proj_plt
 
 # 载入项目变量配置.
 ENC_CONFIG = config_loader.environ_config
