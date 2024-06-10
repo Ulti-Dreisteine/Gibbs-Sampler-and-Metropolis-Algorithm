@@ -29,3 +29,5 @@ mod/logs/
 trash/
 *.pyc
 tmp/
+
+case_estimate_pi/img/*.png
