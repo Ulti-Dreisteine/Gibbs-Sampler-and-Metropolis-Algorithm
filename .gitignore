@@ -31,3 +31,5 @@ trash/
 tmp/
 
 case_estimate_pi/img/*.png
+case_sample_bivar_gauss_prob/*.png
+case_sample_bivar_gauss_prob/*.pdf
