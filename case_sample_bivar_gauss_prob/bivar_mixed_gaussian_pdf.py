@@ -82,16 +82,16 @@ if __name__ == "__main__":
     sigma = np.array([[1, 0.5], [0.5, 1]])
     Z = cal_bivar_gauss_pdf(X, Y, mu, sigma)
             
-    plt.figure(figsize=(5, 5))
-    plt.contourf(X, Y, Z, 50)
-    plt.xlabel("$x$")
-    plt.ylabel("$y$")
+    # plt.figure(figsize=(5, 5))
+    # plt.contourf(X, Y, Z, 50)
+    # plt.xlabel("$x$")
+    # plt.ylabel("$y$")
     
     # ---- 多个二元高斯分布的加权融合 ------------------------------------------------------------------
     
-    mu_lst = [np.array([1, 1]), np.array([4, 4])]
-    sigma_lst = [np.array([[1, 0.0], [0.0, 1]]), np.array([[1, 0.0], [0.0, 1]])]
-    weights = [0.3, 0.5]
+    mu_lst = [np.array([-3, -3]), np.array([3, 3])]
+    sigma_lst = [np.array([[1, 0.8], [0.8, 1]]), np.array([[1, -0.8], [-0.8, 1]])]
+    weights = [0.2, 0.8]
     
     # 绘制多个二元高斯分布的加权融合概率密度函数
     x = np.linspace(-10, 10, 200)
@@ -102,8 +102,10 @@ if __name__ == "__main__":
         for j in range(X.shape[1]):
             Z[i, j] = cal_merged_gauss_pdf(X[i, j], Y[i, j], mu_lst, sigma_lst, weights)
         
-    plt.figure(figsize=(5, 5))
-    plt.contourf(X, Y, Z, 50)
+    plt.figure(figsize=(6, 5))
+    plt.contourf(X, Y, Z, 50, cmap="Reds")
     plt.xlabel("$x$")
     plt.ylabel("$y$")
+    plt.colorbar(label="Prob. Dens.")
+    plt.savefig("asset/bivar_mixed_gaussian_pdf.png", dpi=450)
     
